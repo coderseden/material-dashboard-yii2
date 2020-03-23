@@ -1,0 +1,12 @@
+.DS_Store
+.idea
+error_log
+__MACOSX
+.ssh
+.composer
+.bash_profile
+.bash_history
+logs
+web/vendor
+web/config/db.php
+web/composer.lock

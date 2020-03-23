@@ -1,0 +1,54 @@
+#
+# @package    Material Dashboard Yii2
+# @author     CodersEden <hello@coderseden.com>
+# @link       https://www.coderseden.com
+# @copyright  2020 Material Dashboard Yii2 (https://www.coderseden.com)
+# @license    MIT - https://www.coderseden.com
+# @since      1.0
+material-dashboard-mysql:
+  image: mysql:5.7
+  container_name: material-dashboard-mysql
+  environment:
+    - MYSQL_ROOT_PASSWORD=material-dashboard
+    - MYSQL_DATABASE=material-dashboard
+    - MYSQL_USER=material-dashboard
+    - MYSQL_PASSWORD=material-dashboard
+    - MYSQL_PORT=3306
+    - MYSQL_HOST=localhost
+
+material-dashboard-webserver:
+  image: phpdockerio/nginx:latest
+  container_name: material-dashboard-webserver
+  volumes:
+    - ../web:/var/www/material-dashboard/web
+    - ./ssl:/etc/nginx/ssl
+    - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+  ports:
+    - "80:80"
+    - "443:443"
+  links:
+    - material-dashboard-php-fpm
+
+material-dashboard-php-fpm:
+  build: .
+  dockerfile: php-fpm/Dockerfile
+  container_name: material-dashboard-php-fpm
+  volumes:
+    - ../web:/var/www/material-dashboard/web
+    - ./php-fpm/php-ini-overrides.ini:/etc/php/7.2/fpm/conf.d/99-overrides.ini
+  links:
+    - material-dashboard-mysql
+  environment:
+    YII_ENV_DOCKER: 1
+
+material-dashboard-phpmyadmin:
+  image: phpmyadmin/phpmyadmin
+  container_name: material-dashboard-phpmyadmin
+  environment:
+    - PMA_ARBITRARY=1
+    - PMA_HOST=material-dashboard-mysql
+  restart: always
+  ports:
+    - 81:80
+  links:
+    - material-dashboard-mysql
