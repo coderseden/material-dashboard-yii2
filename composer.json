@@ -1,0 +1,13 @@
+{
+  "name": "coderseden/material-dashboard-yii2",
+  "description": "Material Dashboard Yii2 - Free Frontend Preset for Yii2",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "CodersEden",
+      "email": "hello@coderseden.com"
+    }
+  ],
+  "require": {}
+}
