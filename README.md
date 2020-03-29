@@ -1,5 +1,7 @@
 # [Material Dashboard Yii2 - Free Frontend Preset for Yii2](https://www.coderseden.com/product/material-dashboard-yii2) 
 
+[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Get%20free%20material%20dashboard%20for%20Yii2%20based%20on%20Bootstrap%204&url=https://www.coderseden.com/product/material-dashboard-yii2&via=coderseden&hashtags=bootstrap,design,material,yii2,developers)
+
 ![version](https://img.shields.io/badge/version-1.0.0-blue.svg) ![license](https://img.shields.io/badge/license-MIT-blue.svg) 
 
 *Frontend version*: Material Dashboard for Yii2 v1.0.0. More info at https://www.coderseden.com/product/material-dashboard-yii2
